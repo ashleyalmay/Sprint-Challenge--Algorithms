@@ -99,39 +99,61 @@ class SortingRobot:
         # Fill this out
         #start turn on
         #pick up
-        #then compare if smaller then drop if larger move to the nex one
+        #then compare if smaller then drop if larger move to the next one
         #keep doing this until sort
         #turn off 
         #bubble sort method
-        self.set_light_on()
-        self.swap_item()
-        while self.light_is_on():
-            if self.can_move_right():
+    #    self.set_light_on()
+    #     self.swap_item()
+    #     while self.light_is_on():
+    #         if self.compare_item() is None:
+    #             self.swap_item()
+    #         if self.can_move_right():
                 
+    #             self.move_right()
+    #             if self.compare_item()== 1:
+    #                 self.swap_item()
+    #                 self.move_left()
+    #                 self.swap_item()
+    #                 self.move_right()
+    #                 if self.can_move_right():
+    #                     self.swap_item()
+    #             elif self.compare_item()== -1 or self.compare_item() == 0:
+    #                 self.move_left()
+    #                 self.swap_item()
+    #                 self.move_right()
+    #                 self.swap_item()
+    #         else:
+    #             if self.light_is_on():
+    #                 while self.can_move_left():
+    #                     self.move_left()        
+    #             else:
+    #                 break
+    # https://www.youtube.com/watch?v=aXXWXz5rF64&t=14s to .55
+    #
+
+        while True:
+            if self.can_move_right():
+                self.swap_item()
                 self.move_right()
-                if self.compare_item()== 1:
+                if self.compare_item() == 1:
                     self.swap_item()
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-                    if self.can_move_right():
-                        self.swap_item()
-                elif self.compare_item()== -1 or self.compare_item() == 0:
+                    self.set_light_on()
+                elif self.compare_item() == -1 or self.compare_item() == 0:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
-                    self.swap_item()
             else:
                 if self.light_is_on():
                     while self.can_move_left():
                         self.move_left()
-                        
-                else:
                     self.set_light_off()
-
-
-
-
+                else:
+                    break 
+        
 if __name__ == "__main__":
     # Test our your implementation from the command line
     # with `python robot_sort.py`
